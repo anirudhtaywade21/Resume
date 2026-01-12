@@ -1,0 +1,3 @@
+const texts=["ANIRUDH DILIP TAYWADE","A D T"];const typeSpeeds=[100,200];const eraseSpeeds=[50,100];const waitBeforeErase=1000;const waitBeforeNext=500;let i=0;let textIndex=0;function typeWriter(){const text=texts[textIndex];const speed=typeSpeeds[textIndex]||100;if(i<text.length){document.getElementById("typewriter").textContent+=text.charAt(i);i++;setTimeout(typeWriter,speed)}else{setTimeout(eraseWriter,waitBeforeErase)}}
+function eraseWriter(){const textElem=document.getElementById("typewriter");const eraseSpeed=eraseSpeeds[textIndex]||50;if(i>0){textElem.textContent=textElem.textContent.slice(0,-1);i--;setTimeout(eraseWriter,eraseSpeed)}else{textIndex=(textIndex+1)%texts.length;setTimeout(typeWriter,waitBeforeNext)}}
+typeWriter()
